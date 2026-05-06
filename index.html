@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | Hitam & Putih</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
+
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        .gallery-item img {
+            transition: all 0.5s ease;
+            filter: grayscale(100%);
+        }
+
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 1px;
+            background: #000;
+            transition: width .3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body class="bg-white text-black">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-serif font-bold tracking-tighter">PORTFOLIO.</a>
+            <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-medium">
+                <a href="#home" class="nav-link">Beranda</a>
+                <a href="#photos" class="nav-link">Foto</a>
+                <a href="#videos" class="nav-link">Video</a>
+                <a href="#contact" class="nav-link">Kontak</a>
+            </div>
+            <button class="md:hidden text-2xl" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center space-y-8 text-2xl hidden">
+        <button class="absolute top-6 right-6 text-3xl" onclick="toggleMenu()">&times;</button>
+        <a href="#home" onclick="toggleMenu()">Beranda</a>
+        <a href="#photos" onclick="toggleMenu()">Foto</a>
+        <a href="#videos" onclick="toggleMenu()">Video</a>
+        <a href="#contact" onclick="toggleMenu()">Kontak</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 pt-20 max-w-7xl mx-auto">
+        <div class="md:w-1/2 mb-12 md:mb-0 fade-in">
+            <h1 class="text-6xl md:text-8xl leading-tight mb-6">fathir<br><span class="text-gray-400">lubis.</span></h1>
+            <p class="text-lg text-gray-600 max-w-md mb-8 leading-relaxed">
+                Fotografer & Kreator Digital yang berfokus pada estetika minimalis dan bercerita melalui lensa visual.
+            </p>
+            <div class="flex space-x-4">
+                <a href="#photos" class="bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition">Lihat Karya</a>
+                <a href="#contact" class="border border-black px-8 py-3 rounded-full hover:bg-black hover:text-white transition">Hubungi</a>
+            </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center fade-in">
+            <div class="relative w-72 h-96 md:w-96 md:h-[500px] border-[12px] border-black overflow-hidden shadow-2xl">
+                <img src="fathir.jpg"
+                     alt="Foto Profil" 
+                     class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                     onerror="this.src='https://via.placeholder.com/800x1000?text=Foto+Anda'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section id="photos" class="py-24 px-6 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16">
+                <h2 class="text-4xl font-bold mb-2">Galeri Foto</h2>
+                <div class="w-20 h-1 bg-black"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Image 1 -->
+                <div class="gallery-item overflow-hidden aspect-[3/4] bg-gray-200">
+                    <img src="foto1.jpg="foto1">
+                </div>
+                <!-- Image 2 -->
+                <div class="gallery-item overflow-hidden aspect-[3/4] bg-gray-200">
+                    <img src="foto2.jpg" alt="foto2">
+                </div>
+                <!-- Image 3 -->
+                <div class="gallery-item overflow-hidden aspect-[3/4] bg-gray-200">
+                    <img src="foto3.jpg" alt="foto3">
+                </div>
+                <!-- Image 4 -->
+                <div class="gallery-item overflow-hidden aspect-square md:col-span-2 bg-gray-200">
+                    <img src="foto4.jpg" alt="foto4">
+                </div>
+                <!-- Image 5 -->
+                <div class="gallery-item overflow-hidden aspect-square bg-gray-200">
+                    <img src="foto5.jpg" alt="foto5">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Gallery -->
+    <section id="videos" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 text-right flex flex-col items-end">
+                <h2 class="text-4xl font-bold mb-2">Galeri Video</h2>
+                <div class="w-20 h-1 bg-black"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="space-y-4">
+                    <div class="video-container shadow-xl">
+                        <!-- Placeholder YouTube Video (Silakan ganti ID-nya) -->
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                    <h3 class="text-xl font-bold italic">Cinematic Landscape 2024</h3>
+                    <p class="text-gray-500 text-sm">Sebuah eksplorasi visual tentang keindahan alam pegunungan di pagi hari.</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="video-container shadow-xl">
+                        <!-- Placeholder YouTube Video -->
+                        <iframe src="https://www.youtube.com/embed/3JZ_D3ELwOQ" allowfullscreen></iframe>
+                    </div>
+                    <h3 class="text-xl font-bold italic">Urban Life Short Film</h3>
+                    <p class="text-gray-500 text-sm">Dokumentasi singkat mengenai hiruk pikuk kehidupan kota metropolitan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-black text-white py-20 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-5xl font-serif mb-8">Mari bekerja sama.</h2>
+                <p class="text-gray-400 mb-8 max-w-sm">
+                    Tersedia untuk proyek freelance, kolaborasi brand, atau sekadar berbincang tentang ide kreatif.
+                </p>
+                <div class="flex space-x-6 text-2xl">
+                    <a href="#" class="hover:text-gray-400 transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-gray-400 transition"><i class="fa-brands fa-vimeo"></i></a>
+                    <a href="#" class="hover:text-gray-400 transition"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="mailto:email@anda.com" class="hover:text-gray-400 transition"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="flex flex-col justify-end items-start md:items-end">
+                <p class="text-sm tracking-widest uppercase text-gray-500 mb-4">Lokasi</p>
+                <p class="text-xl mb-8 text-right">Jakarta, Indonesia</p>
+                <p class="text-xs text-gray-600">&copy; 2024 Nama Anda. Dibuat dengan presisi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Simple Reveal Animation on Scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const top = section.getBoundingClientRect().top;
+                if (top < window.innerHeight - 100) {
+                    section.classList.add('fade-in');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
